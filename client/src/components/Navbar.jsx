@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="md:flex-0.5 flex-initial justify-center items-center">
                 <img src={logo} alt="log" className='w-32 cursor-pointer' />
             </div>
-            <ul className="text-white md:flex hiddent list-none flex-row justify-between items-center flex-initial">
+            <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
                 {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
                     <NavbarItem key={item + index} title={item}/>
                 ))}
@@ -29,9 +29,18 @@ const Navbar = () => {
             </ul>
             <div className='flex relative'>
                     {toggleMenu
-                    ? <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu =(false)}/>
-                    : <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu =(true)}/>
-                    }
+                    ? <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)}/>
+                    : <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)}/>}
+                    {toggleMenu && (
+                        <ul>
+                            <li className='text-xl w-full my-2'>
+                                <AiOutlineClose onClick={() => setToggleMenu(false)}/>
+                            </li>
+                            {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
+                            <NavbarItem key={item + index} title={item} classProps='my-2 text-lg'/>
+                ))}
+                        </ul>
+                    )}
             </div>
         </nav> 
     )
