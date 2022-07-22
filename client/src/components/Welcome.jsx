@@ -3,6 +3,9 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
 import { Loader } from "./";
+
+const
+
 const Welcome = () => {
     const connectWallet = () => { 
 
@@ -26,7 +29,7 @@ const Welcome = () => {
                     </button>
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-                        <div className="">
+                        <div className={`rounded-tl-2xl ${commonStyles}`}>
 
                         </div>
                     </div>
