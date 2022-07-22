@@ -19,6 +19,7 @@ const Navbar = () => {
                 {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
                     <NavbarItem key={item + index} title={item}/>
                 ))}
+                
             </ul>
         </nav> 
     )
