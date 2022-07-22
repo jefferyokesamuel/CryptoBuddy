@@ -4,7 +4,7 @@ import { BsInfoCircle } from "react-icons/bs";
 
 import { Loader } from "./";
 
-const
+const commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white';
 
 const Welcome = () => {
     const connectWallet = () => { 
@@ -30,7 +30,10 @@ const Welcome = () => {
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`}>
-
+                            Reliability
+                        </div>
+                        <div className={commonStyles}>
+                            Security
                         </div>
                     </div>
                 </div>
