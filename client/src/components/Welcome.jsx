@@ -14,6 +14,12 @@ const Welcome = () => {
                     <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
                         Explore the Crypto world. Buy and sell cryptocurrencies with CryptoBuddy
                     </p>
+                    <button
+                    type="button"
+                    
+                    >
+
+                    </button>
                 </div>
             </div>
         </div>
