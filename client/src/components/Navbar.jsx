@@ -1,7 +1,9 @@
 
 import logo from '../../images/logo.png';
 
-const
+const NavbarItem = ({title, classProps}) => {
+
+}
 
 const Navbar = () => {
     return (
