@@ -59,7 +59,10 @@ const Welcome = () => {
                                 </div>
                                 <BsInfoCircle fontSize={17} color="#fff"/>
                             </div>
-                                <div className="">
+                                <div>
+                                    <p className="text-white font-light text-sm">
+                                        o232edwad2
+                                    </p>
 
                                 </div>
                         </div>
