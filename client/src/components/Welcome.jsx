@@ -19,7 +19,7 @@ const Input = ({placeholder, name, type, value, handleChange})  => (
     />
 ) 
 const Welcome = () => {
-    //const { value } = useContext(TransactionContext)
+    //const { currentAccount } = useContext(TransactionContext)
 
     const connectWallet = async () => {
         try {
@@ -48,6 +48,7 @@ const Welcome = () => {
                     <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
                         Explore the Crypto world. Buy and sell cryptocurrencies with CryptoBuddy
                     </p>
+                    
                     <button
                     type="button"
                     onClick={connectWallet}
@@ -55,7 +56,7 @@ const Welcome = () => {
                     >
                         <p className="text-white text-base font-semibold">Connect Wallet</p>
                     </button>
-
+                    
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`}>
                             Reliability
