@@ -1,5 +1,11 @@
-/// @title A title that should describe the contract/interface
-/// @author The name of the author
-/// @notice Explain to an end user what this does
-/// @dev Explain to a developer any extra details
+// SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.0;
+
+contract Transactions {
+    uint256 transactionCounter;
+
+    event Transfer(address from, address reciever, uint amount, string message, uint256 timestamp, string keyword);
+
+    s 
+}
