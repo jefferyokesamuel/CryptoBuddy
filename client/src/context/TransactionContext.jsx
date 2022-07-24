@@ -20,3 +20,11 @@ console.log({
     signer,
     transactionContract
 })
+
+export const TransactionProvider = ({children}) => {
+    return (
+        <TransactionContext.Provider>   
+            
+        </TransactionContext.Provider>
+    )
+}
