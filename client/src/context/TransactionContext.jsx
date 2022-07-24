@@ -25,14 +25,25 @@ export const TransactionProvider = ({children}) => {
     const [connectedAccount, setConnectedAccount] = useState(initialState);
   
     const checkIfWalletIsConnected = async () => { 
-        if(!ethereum) return alert("Wallet is not co  nnected")
+
+    try {
+        
+     if(!ethereum) return alert("Wallet is not connected")
 
         const accounts = await ethereum.request({ method: 'eth_accounts'})
 
         if(accounts.length) {
             setConnectedAccount(accounts[0])
+        } else {
+            console.log("no accounts found")
         }
-        console.log(accounts)
+    } catch (error) {
+        console.log(error)
+
+        throw new Error("No Ethereum object")
+    }
+        
+       
     }
 
     const connectWallet = async () => {
