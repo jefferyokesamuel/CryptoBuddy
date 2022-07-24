@@ -8,21 +8,30 @@ import { Loader } from "./";
 
 const commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white';
 
-const Input = (placeholder, name, type, value, handleChange)  => (
+const Input = ({placeholder, name, type, value, handleChange})  => (
     <input
     placeholder={placeholder}
     type={type}
-    step="0.001"
+    step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
     className="my-2, w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
     />
 ) 
 const Welcome = () => {
-    //const {value} = useContext(TransactionContext)
+    //const { value } = useContext(TransactionContext)
 
-    const connectWallet = () => { 
+    const connectWallet = async () => {
+        try {
+            if(!ethereum) return alert("Wallet is not connected")
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts'})
 
+            setCurrentAccount(accounts[0])
+        } catch (error) {
+            console.log(error)
+
+            throw new Error("No Ethereum object")
+        }
     }
 
     const handleSubmit = () => {
@@ -97,7 +106,7 @@ const Welcome = () => {
 
                         <div className="h-[1px] w-full bg-gray-400 m-2"/>
 
-                        {FontFaceSetLoadEvent ? (
+                        {false ? (
                             <Loader />
                         ) : (
                             <button

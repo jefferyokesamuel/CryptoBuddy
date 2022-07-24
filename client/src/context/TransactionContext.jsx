@@ -15,29 +15,47 @@ const getEthereumContract = () => {
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer)
 
 
-console.log(
+console.log({
     provider,
     signer,
-    transactionContract)
+    transactionContract
+});
 }
 export const TransactionProvider = ({children}) => {
+    const [connectedAccount, setConnectedAccount] = useState(initialState);
   
-const checkWalletConnected = async () => { 
-    if(!ethereum) return alert("Wallet is not connected")
+    const checkIfWalletIsConnected = async () => { 
+        if(!ethereum) return alert("Wallet is not co  nnected")
 
-    const accounts = await ethereum.request({ method: 'eth_accounts'})
+        const accounts = await ethereum.request({ method: 'eth_accounts'})
 
-    console.log(accounts)
-}
+        if(accounts.length) {
+            
+        }
+        console.log(accounts)
+    }
 
-const connectWallet = async () => {}
+    const connectWallet = async () => {
+        try {
+            if(!ethereum) return alert("Wallet is not connected")
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts'})
 
-useEffect(() => {
-    checkWalletConnected()
-}, [])
-return (
-    <TransactionContext.Provider value={{ value: 'test'}}>   
-        {children}
-    </TransactionContext.Provider>
-)
+            setCurrentAccount(accounts[0])
+        } catch (error) {
+            console.log(error)
+
+            throw new Error("No Ethereum object")
+        }
+    }
+
+    useEffect(() => {
+        checkIfWalletIsConnected()
+    }, []);
+
+
+    return (
+        <TransactionContext.Provider value={{connectWallet: connectWallet}}>   
+            {children}
+        </TransactionContext.Provider>
+    );
 }
