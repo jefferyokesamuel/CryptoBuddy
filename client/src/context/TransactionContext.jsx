@@ -13,18 +13,31 @@ const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer)
-}
 
-console.log({
+
+console.log(
     provider,
     signer,
-    transactionContract
-})
-
+    transactionContract)
+}
 export const TransactionProvider = ({children}) => {
-    return (
-        <TransactionContext.Provider value={{ value: 'test'}}>   
-            {children}
-        </TransactionContext.Provider>
-    )
+  
+const checkWalletConnected = async () => { 
+    if(!ethereum) return alert("Wallet is not connected")
+
+    const accounts = await ethereum.request({ method: 'eth_accounts'})
+
+    console.log(accounts)
+}
+
+const connectWallet = async () => {}
+
+useEffect(() => {
+    checkWalletConnected()
+}, [])
+return (
+    <TransactionContext.Provider value={{ value: 'test'}}>   
+        {children}
+    </TransactionContext.Provider>
+)
 }
