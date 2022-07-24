@@ -76,7 +76,7 @@ const Welcome = () => {
                         </div>
                     </div>
                     <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                        <Input
+                        <Input placeholder="Address To" name='addressTo' type='text' 
                         />
                     </div>
                 </div>
