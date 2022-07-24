@@ -3,4 +3,8 @@ import {ethers} from "ethers";
 
 import { contractABI, contractAddress } from "../utils/constants";
 
-export const 
+export const TransactionContext = React.createContext();
+
+const { ethereum } = window;
+
+window.ethereum
