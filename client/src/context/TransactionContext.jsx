@@ -30,7 +30,7 @@ export const TransactionProvider = ({children}) => {
         const accounts = await ethereum.request({ method: 'eth_accounts'})
 
         if(accounts.length) {
-            
+            setConnectedAccount(accounts[0])
         }
         console.log(accounts)
     }
