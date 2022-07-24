@@ -23,8 +23,8 @@ console.log({
 
 export const TransactionProvider = ({children}) => {
     return (
-        <TransactionContext.Provider>   
-            
+        <TransactionContext.Provider value={{ value: 'test'}}>   
+            {children}
         </TransactionContext.Provider>
     )
 }
