@@ -19,10 +19,15 @@ console.log({
     provider,
     signer,
     transactionContract
-});
+    });
 }
 export const TransactionProvider = ({children}) => {
-    const [connectedAccount, setConnectedAccount] = useState(initialState);
+    const [currentAccount, setCurrentAccount] = useState('');
+    const [formData, setFormData] = useState({addressTo: '', amount: '', keyword: '', message: '' });
+
+    const handleChange = (e, name) => {
+
+    }
   
     const checkIfWalletIsConnected = async () => { 
 
@@ -59,13 +64,20 @@ export const TransactionProvider = ({children}) => {
         }
     }
 
+    const sendTransaction = async () => {
+        try {
+            if(!ethereum) return alert("Wallet is not connected")
+        } catch (error) {
+            console.log(error)
+        }
+    }
     useEffect(() => {
         checkIfWalletIsConnected()
     }, []);
 
 
     return (
-        <TransactionContext.Provider value={{connectWallet: connectWallet}}>   
+        <TransactionContext.Provider value={{currentAccount}}>   
             {children}
         </TransactionContext.Provider>
     );
