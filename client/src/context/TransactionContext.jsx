@@ -10,5 +10,11 @@ const { ethereum } = window;
 window.ethereum
 
 const getEthereumContract = () => {
-    
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
 }
+
+console.log({
+    provider,
+    signer
+})
