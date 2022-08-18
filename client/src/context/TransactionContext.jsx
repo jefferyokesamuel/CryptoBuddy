@@ -96,6 +96,7 @@ export const TransactionProvider = ({ children }) => {
 
       setCurrentAccount(accounts[0]);
       window.location.reload();
+      console.log(currentAccount)
     } catch (error) {
       console.log(error);
 
