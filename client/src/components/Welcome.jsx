@@ -19,7 +19,7 @@ const Input = ({placeholder, name, type, value, handleChange})  => (
     />
 ) 
 const Welcome = () => {
-    //const { currentAccount } = useContext(TransactionContext)
+    const { currentAccount } = useContext(TransactionContext)
 
     const connectWallet = async () => {
         try {

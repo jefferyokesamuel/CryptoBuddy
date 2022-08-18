@@ -15,7 +15,7 @@ const createEthereumContract = () => {
   return transactionsContract;
 };
 
-export const TransactionsProvider = ({ children }) => {
+export const TransactionProvider = ({ children }) => {
   const [formData, setformData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
   const [currentAccount, setCurrentAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
