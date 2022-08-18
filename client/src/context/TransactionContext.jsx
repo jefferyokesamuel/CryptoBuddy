@@ -106,7 +106,8 @@ export const TransactionProvider = ({ children }) => {
 
   const sendTransaction = async () => {
     try {
-      if (ethereum) {
+      if (!ethereum) return alert("Please install MetaMask")
+
         const { addressTo, amount, keyword, message } = formData;
         const transactionsContract = createEthereumContract();
         const parsedAmount = ethers.utils.parseEther(amount);
@@ -133,9 +134,8 @@ export const TransactionProvider = ({ children }) => {
 
         setTransactionCount(transactionsCount.toNumber());
         window.location.reload();
-      } else {
-        console.log("No ethereum object");
-      }
+      
+      
     } catch (error) {
       console.log(error);
 
