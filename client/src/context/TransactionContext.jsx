@@ -7,12 +7,12 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
-const createEthereumContract = async () => {
+const createEthereumContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
-  const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
+  const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-  console.log(provider, signer, transactionsContract)
+  return transactionContract
 };
 
 export const TransactionProvider = ({ children }) => {
