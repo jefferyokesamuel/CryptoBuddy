@@ -123,13 +123,13 @@ export const TransactionProvider = ({ children }) => {
           }],
         });
 
-        const transactionHash = await transactionsContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
+        const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
 
         setIsLoading(true);
         console.log(`Loading - ${transactionHash.hash}`);
         await transactionHash.wait();
-        console.log(`Success - ${transactionHash.hash}`);
         setIsLoading(false);
+        console.log(`Success - ${transactionHash.hash}`);
 
         const transactionsCount = await transactionsContract.getTransactionCount();
 
