@@ -30,7 +30,7 @@ const Welcome = () => {
 
         if(!addressTo || !amount || !keyword || !message) return
 
-        sendTransaction();
+       sendTransaction();
      }
 
     return (

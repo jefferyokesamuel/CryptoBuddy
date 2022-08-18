@@ -12,8 +12,8 @@ const createEthereumContract = () => {
   const signer = provider.getSigner();
   const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-  return transactionContract
-};
+  console.log({provider, signer, transactionContract})
+}
 
 export const TransactionProvider = ({ children }) => {
   const [formData, setFormData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
@@ -110,6 +110,7 @@ export const TransactionProvider = ({ children }) => {
 
         const { addressTo, amount, keyword, message } = formData;
       
+        createEthereumContract()
         const transactionContract = createEthereumContract();
         const parsedAmount = ethers.utils.parseEther(amount);
 
@@ -134,9 +135,6 @@ export const TransactionProvider = ({ children }) => {
         const transactionCount = await transactionContract.getTransactionCount();
 
         setTransactionCount(transactionCount.toNumber());
-        window.location.reload();
-      
-      
     } catch (error) {
       console.log(error);
 
