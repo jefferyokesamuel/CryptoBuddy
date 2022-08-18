@@ -16,7 +16,7 @@ const ServiceCard = ({color, title, icon, subtitle}) => (
 
 const Services = () => {
     return (
-        <div className="flex w-full justify-center items-center gradient-bg-services">
+        <div className="flex flex-col md:flex-row w-full justify-center items-center gradient-bg-services">
             <div className="flex mf:flex-row flex-col items-center justify-betewwn md:p-20 py-12 px-4">
                 <div className="flex-1 flex flex-col justify-start items-start">
                     <h1 className='text-white text-3xl sm:text-5xl py-2 text-gradient'>Services that we
@@ -30,6 +30,17 @@ const Services = () => {
             color= "bg-[#2952E3]"
             title= "Security Guaranteed"
             icon= {<BsShieldFillCheck fontSize={21} className="text-white"/>}
+            subtitle="Security is guaranted. We always maintain privacy and the quality of our products"
+            />
+            <ServiceCard 
+            color= "bg-[#8945F8]"
+            title= "Best Exchange Rates"
+            icon= {<BiSearchAlt fontSize={21} className="text-white"/>}
+            subtitle="Security is guaranted. We always maintain privacy and the quality of our products"
+            /><ServiceCard 
+            color= "bg-[#F84550]"
+            title= "Faster Transactions"
+            icon= {<RiHeart2Fill fontSize={21} className="text-white"/>}
             subtitle="Security is guaranted. We always maintain privacy and the quality of our products"
             />
         </div>
