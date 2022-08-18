@@ -7,7 +7,7 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
-const createEthereumContract = () => {
+const createEthereumContract = async () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
@@ -23,7 +23,7 @@ export const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   const handleChange = (e, name) => {
-    setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
+    setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
 
   const getAllTransactions = async () => {
