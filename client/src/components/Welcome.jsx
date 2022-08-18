@@ -19,21 +19,10 @@ const Input = ({placeholder, name, type, value, handleChange})  => (
     />
 ) 
 const Welcome = () => {
-    const { currentAccount } = useContext(TransactionContext)
 
-    const connectWallet = async () => {
-        try {
-            if(!ethereum) return alert("Wallet is not connected")
-            const accounts = await ethereum.request({ method: 'eth_requestAccounts'})
 
-            setCurrentAccount(accounts[0])
-        } catch (error) {
-            console.log(error)
-
-            throw new Error("No Ethereum object")
-        }
-    }
-
+    const { connectWallet } = useContext(TransactionContext)
+    
     const handleSubmit = () => {
 
      }
