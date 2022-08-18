@@ -24,7 +24,9 @@ const Welcome = () => {
     const { connectWallet, connectAccount, formData, setFormData, handleChange } = useContext(TransactionContext)
 
     const handleSubmit = () => {
+        const { addressTo, amount, keyword, message} = formData
 
+        
      }
 
     return (
