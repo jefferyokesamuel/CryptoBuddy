@@ -129,11 +129,11 @@ export const TransactionProvider = ({ children }) => {
         console.log(`Loading - ${transactionHash.hash}`);
         await transactionHash.wait();
         setIsLoading(false);
-        console.log(`Success - ${transactionHash.hash}`);
+        console.log(`Success - ${transactionHash.hash}`); 
 
-        const transactionsCount = await transactionsContract.getTransactionCount();
+        const transactionCount = await transactionContract.getTransactionCount();
 
-        setTransactionCount(transactionsCount.toNumber());
+        setTransactionCount(transactionCount.toNumber());
         window.location.reload();
       
       
